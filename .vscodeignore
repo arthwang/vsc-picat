@@ -1,0 +1,15 @@
+*
+*/**
+!out/src/**/*.js
+!out/src/**/*.pi
+!snippets/*.json
+!syntaxes/*.json
+!images/**/*
+!README.md
+!package.json
+!CHANGELOG.md
+!picat.configuration.json
+!LICENSE.txt
+!node_modules/bluebird/**/*
+!node_modules/vscode-debugadapter/**/*
+!node_modules/vscode-debugprotocol/**/*

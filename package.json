@@ -1,0 +1,134 @@
+{
+  "name": "vsc-picat",
+  "displayName": "VSC-Picat",
+  "description": "Support for Picat language",
+  "version": "0.1.0",
+  "publisher": "arthurwang",
+  "icon": "images/picat.ico",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.6.0"
+  },
+  "categories": [
+    "Languages",
+    "Snippets",
+    "Linters"
+  ],
+  "keywords": [
+    "picat",
+    "linter",
+    "snippet"
+  ],
+  "author": {
+    "name": "Arthur Wang",
+    "email": "rthrwang@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arthwang/vsc-picat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arthwang/vsc-picat/issues",
+    "email": "rthrwang@gmail.com"
+  },
+  "main": "./out/src/extension",
+  "activationEvents": [
+    "onLanguage:picat"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "picat",
+        "aliases": [
+          "Picat"
+        ],
+        "configuration": "./picat.configuration.json",
+        "extensions": [
+          ".pi"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "picat",
+        "scopeName": "source.picat",
+        "path": "./syntaxes/picat.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "picat",
+        "path": "./snippets/picat.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "picat.run.document",
+        "title": "Picat: run document"
+      },
+      {
+        "command": "picat.open",
+        "title": "Picat: open Picat"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "picat.run.document",
+        "key": "f10"
+      },
+      {
+        "command": "picat.open",
+        "key": "alt-x p"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "picat.run.document",
+          "when": "resourceLangId == picat"
+        },
+        {
+          "command": "picat.open",
+          "when": "resourceLangId == picat"
+        }
+      ]
+    },
+    "debuggers": [],
+    "configuration": {
+      "title": "",
+      "properties": {
+        "picat.executablePath": {
+          "type": "string",
+          "default": "/usr/bin/picat",
+          "description": "Points to the Picat executable."
+        },
+        "picat.terminal.runtimeArgs": {
+          "type": "array",
+          "description": "Arguments of Picat executable run in terminal.",
+          "default": []
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test",
+    "syntax4picat": "yaml2json --pretty --save ./syntaxes/picat.tmLanguage.yaml",
+    "pkgvars": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.11",
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.28",
+    "typescript": "^2.5.2",
+    "vscode": "^1.1.5"
+  },
+  "dependencies": {
+    "child-process-promise": "^2.2.1",
+    "node": "^8.3.0",
+    "process-promises": "^1.0.0",
+    "vscode-debugadapter": "^1.23.0"
+  }
+}

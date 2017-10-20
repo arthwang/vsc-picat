@@ -1,0 +1,109 @@
+comment: "This Source Code Form is subject to the terms of the Mozilla Public License,\nv. 2.0. If a copy of the MPL was not distributed with this file, You can obtain\none at http://mozilla.org/MPL/2.0/."
+name: Picat
+scopeName: source.picat
+fileTypes: [pi]
+patterns:
+  -
+    include: '#comments'
+  -
+    name: meta.predfunc.body.picat
+    begin: '(?<=(=>))\s*'
+    beginCaptures:
+      '1': 
+        name: keyword.control.predfunc.bodybegin.picat
+    end: '(\.)(?!(\s*\d|\.|\w))'
+    endCaptures:
+      '1': 
+        name: keyword.control.predfunc.bodyend.picat
+    patterns:
+      - include: '#comments'
+      - include: '#variable'
+      - include: '#constants'
+      - include: '#builtin'
+      - include: '#controlandkeywords'
+      - include: '#atom'
+  -
+    name: meta.predfunc.head.picat
+    begin: '^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?=.*(=>).*)'
+    beginCaptures:
+      '1':
+        name: entity.name.function.predfunc.picat
+      '2':
+        name: punctuation.definition.parameters.begin
+    end: '((\)?))\s*(=>)'
+    endCaptures:
+      '1':
+        name: punctuation.definition.parameters.end
+      '3':
+        name: keyword.control.predfunc.bodybegin.picat
+    patterns:
+      -
+        include: '#atom'
+      -
+        include: '#variable'
+      -
+        include: '#constants'
+  - name: meta.fact.picat
+    begin: '^\s*([a-z][a-zA-Z0-9_]*)(\(?)(?!.*(\??=>).*)'
+    beginCaptures:
+      '1': {name: entity.name.predfunc.fact.picat}
+      '2': {name: punctuation.definition.parameters.begin}
+    end: ((\)?))\s*(\.)(?!\d+)
+    endCaptures:
+      '1': {name: punctuation.definition.parameters.end}
+      '3': {name: keyword.control.fact.end.picat}
+    patterns:
+    - include: '#atom'
+    - include: '#variable'
+    - include: '#constants'
+repository:
+  builtin:
+    patterns:
+      -
+        name: keyword.other
+        match: \b(do|else|elseif|end|foreach|if|in|index|max|min|module|not|notin|nt|private|protected|public|table|then|while)\b
+      -
+        name: support.function.defaultbuiltin.picat
+        match: \b(abs|acos|acot|acsc|acyclic_term|and_to_list|append|apply|arity|array|asec|asin|at_end_of_stream|atan|atan2|atom|atom_chars|atom_codes|atomic|attr_var|avg|between|bind_vars|call|call_cleanup|catch|ceiling|char|chr|clear|close|compare_terms|compound|copy_term|cos|cot|count_all|csc|delete|delete_all|different_terms|digit|dvar|dvar_or_int|e|even|exp|fail|false|find_all|findall|first|flatten|float|floor|flush|fold|frand|freeze|gcd|get|get_attr|get_global_map|get_heap_map|get_table_map|ground|handle_exception|has_key|hash_code|head|insert|insert_all|insert_ordered|insert_ordered_down|int|integer|is|keys|last|len|length|list|list_to_and|log|log10|log2|lowercase|map|map_to_list|max|maxint_small|maxof|maxof_inc|membchk|member|min|minint_small|minof|minof_inc|modf|name|new_array|new_list|new_map|new_set|new_struct|nl|nonvar|not Call|nth|number|number_chars|number_codes|number_vars|odd|once Call|open|ord|parse_radix_string|parse_term|peek_byte|peek_char|pi|post_event|post_event_any|post_event_bound|post_event_dom|post_event_ins|pow|pow_mod|prime|primes|print|printf|println|prod|put|put_attr|rand_max|random|random = Val|random2|read_atom|read_byte|read_char|read_char_code|read_file_bytes|read_file_chars|read_file_codes|read_file_lines|read_file_terms|read_int|read_line|read_number|read_picat_token|read_real|read_term|readln|real|reduce|remove_dups|repeat |reverse|round|sec|second|select|sign|sin|size|slice|sort|sort_down|sort_down_remove_dups|sort_remove_dups|sorted|sorted_down|sqrt|string|struct|subsumes|sum|tail|tan|throw E|to_array|to_atom|to_binary_string|to_codes|to_degrees|to_fstring|to_hex_string|to_int|to_integer|to_list|to_lowercase|to_number|to_oct_string|to_radians|to_radix_string|to_real|to_string|to_uppercase|true|truncate|uppercase|values|var|variant|vars|write|write_byte|write_char|write_char_code|writef|writeln|zip)\b
+  comments:
+    patterns:
+      -
+        name: comment.line.percent-sign.picat
+        match: '%.*'
+      -
+        name: comment.block.picat
+        begin: '/\*'
+        end: '\*/'
+        captures: {'0': {name: punctuation.definition.comment.picat}}
+  constants:
+    patterns:
+      -
+        name: constant.numeric.integer.picat
+        match: '(?<![a-zA-Z]|/)(\d+|(\d+\.\d+))'
+      -
+        name: string.quoted.double.picat
+        match: '".*?"'
+  atom:
+    patterns:
+      -
+        name: constant.other.atom.simple.picat
+        match: '(?<![a-zA-Z0-9_])[a-z][a-zA-Z0-9_]*(?!\s*\(|[a-zA-Z0-9_])'
+      -
+        name: constant.other.atom.quoted.picat
+        match: '''.*?'''
+      -
+        name: constant.other.atom.emptylist.picat
+        match: '\[\]'
+  controlandkeywords:
+    patterns:
+      -
+        name: keyword.operator.picat
+        match: '(=|\!=|>|>=|<|<=|=<|\.\.|\!|,|;|:|::|\.|\. |=>|\?=>|==|!==|:=|\||\$|@|/\|\/|~|\^|<<|>>|\+|\-|\*|\*\*|/|/>|/<|\^|#=|#\!=|#>|#>=|#<|#<=|#=<|#/\|#\/|#~|#\^|#=>|#<=>|@>|@>=|@<|@<=|@=<)'
+  variable:
+    patterns:
+      -
+        name: variable.parameter.uppercase.picat
+        match: '(?<![a-zA-Z0-9_])[A-Z][a-zA-Z0-9_]*'
+      -
+        name: variable.language.anonymous.picat
+        match: '(?<!\w)_'
