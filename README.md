@@ -1,5 +1,5 @@
 # VSC-Picat
-
+Programming in progress, please waite......
 A VS Code extension which provides language support for Picat.
 
 ___________________
