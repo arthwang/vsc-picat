@@ -13,6 +13,7 @@
 !node_modules/bluebird/**/*
 !node_modules/fs-extra-plus/**/*
 !node_modules/process-promises/**/*
+!node_modules/resolve/**/*
 !node_modules/split/**/*
 !node_modules/through/**/*
 !node_modules/vscode-debugadapter/**/*
