@@ -1,4 +1,4 @@
 # Changelog
 
-## [0.1.2]
+## [0.1.3]
 - Initial usable release

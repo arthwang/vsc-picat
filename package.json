@@ -2,7 +2,7 @@
     "name": "vsc-picat",
     "displayName": "VSC-Picat",
     "description": "Support for Picat language",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "arthurwang",
     "icon": "images/picat.ico",
     "license": "MIT",
@@ -130,6 +130,7 @@
         "fs-extra-plus": "^0.1.3",
         "node": "^8.3.0",
         "process-promises": "^1.0.0",
+        "split": "^1.0.1",
         "vscode-debugadapter": "^1.23.0",
         "xmldom": "^0.1.27",
         "xpath": "0.0.24"
