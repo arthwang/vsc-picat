@@ -15,9 +15,11 @@ import {
 } from "vscode";
 
 import { loadEditHelpers } from "./features/editHelpers";
+import { Utils } from "./utils/utils";
 import PicatDocumentHighlightProvider from "./features/documentHighlightProvider";
 import PicatTerminal from "./features/picatTerminal";
 import PicatLinter from "./features/picatLinter";
+import PicatHoverProvider from "./features/hoverProvider";
 
 export function activate(context: ExtensionContext) {
   console.log('Congratulations, your extension "vsc-picat" is now active!');
@@ -28,7 +30,7 @@ export function activate(context: ExtensionContext) {
 
   let linter = new PicatLinter(context);
   linter.activate();
-
+  Utils.init(context);
   let myCommands = [
     {
       command: "picat.run.document",
@@ -54,6 +56,9 @@ export function activate(context: ExtensionContext) {
       PICAT_MODE,
       new PicatDocumentHighlightProvider()
     )
+  );
+  context.subscriptions.push(
+    languages.registerHoverProvider(PICAT_MODE, new PicatHoverProvider())
   );
   context.subscriptions.push(PicatTerminal.init());
 }

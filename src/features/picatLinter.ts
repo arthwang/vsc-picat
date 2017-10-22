@@ -88,7 +88,7 @@ export default class PicatLinter implements CodeActionProvider {
         }
       })
       .on("stderr", err => {
-        if (/^\s*\*\*\*/.test(err)) {
+        if (/^\s*\*\*/.test(err)) {
           this.outputMsg(err + "\n");
         }
       })
