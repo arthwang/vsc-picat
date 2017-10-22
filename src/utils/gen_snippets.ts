@@ -70,7 +70,7 @@ function convertToBody(head: string): string {
   let params = head.match(/\(([^\)]+)\)/);
   if (params) {
     body = head.split("(")[0] + "(";
-    let stops = params[1].split(",").map((param, i) => {
+    let stops = params[1].split(/,\s*/).map((param, i) => {
       return "${" + (i + 1) + ":" + param + "}";
     });
     body += stops.join(", ") + ")$0";
