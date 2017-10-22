@@ -13,5 +13,6 @@
 !node_modules/bluebird/**/*
 !node_modules/fs-extra-plus/**/*
 !node_modules/process-promises/**/*
+!node_modules/split/**/*
 !node_modules/vscode-debugadapter/**/*
 !node_modules/vscode-debugprotocol/**/*
