@@ -73,7 +73,7 @@ function convertToBody(head: string): string {
     let stops = params[1].split(",").map((param, i) => {
       return "${" + (i + 1) + ":" + param + "}";
     });
-    body += stops.join(",") + ")$0";
+    body += stops.join(", ") + ")$0";
   }
   return body;
 }
@@ -87,8 +87,7 @@ if ($1) then
 else
     $3
 end
-$0
-        `
+$0`
   };
   snippets["ifelif"] = {
     prefix: "ifelif",
@@ -96,23 +95,47 @@ $0
     body: `
 if ($1) then
     $2
-elseif $3
+elseif ($3)
     $4
 else
     $5
 end
-$0
-        `
+$0`
   };
+  snippets["elif"] = {
+    prefix: "elseif",
+    description: "elseif control",
+    body: `
+elseif ($1)
+    $0`
+  };
+  snippets["while"] = {
+    prefix: "while",
+    description: "while loop",
+    body: `
+while ($1)
+    $2
+end
+$0`
+  };
+  snippets["dowhile"] = {
+    prefix: "do",
+    description: "do-while loop",
+    body: `
+do
+    $2
+while($1)
+$0`
+  };
+
   snippets["foreach"] = {
     prefix: "foreach",
     description: "foreach block",
     body: `
-foreach ($1)
+foreach $1
     $2
 end
-$0
-        `
+$0`
   };
 }
 (async () => {

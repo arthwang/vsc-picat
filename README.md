@@ -1,5 +1,4 @@
 # VSC-Picat
-Programming in progress, please waite......
 A VS Code extension which provides language support for Picat.
 
 ___________________
@@ -14,28 +13,39 @@ This extension can be installed via extensions viewlet of VS Code or 'Extensions
   * [Syntax highlighting](#syntax-highlighting)
   * [Snippets](#predicate-snippets)
   * [Information Hovers](#information-hovers)
+  * [Run active source file](#run-active-source-file)
 
 ## Feature descriptions and usages
 
 ### Syntax highlighting
   * Builtin pattern support
+  ![syntax](images/syntaxhl.png)
 
 
 ### Predicate snippets
 
   * Predicate templates auto-completion
-  * Produced from the handbook of picat system
+  * flow controls snippets support
+  * Produced from the documents of picat system
+  ![snippets](images/snippets.gif)
+
 
 
 ### Information hovers
   Hovers show Document information about the predicate under the mouse cursor.
-
+  ![hover](images/hover.gif)
 
 ### Grammar linter
-### Load active source file and query goals
+  The grammar errors (if any) will display in OUTPUT channel when active source file is saved.
+  ![linter](images/linter.gif)
 
-  * Command 'Picat: load document' 
-    (default map to alt-x l) loads the source file in active editor into picat process in the integrated terminal, spawning the picat picat it if not opened. The picat process provides a real REPL console. 
+### Run active source file
+
+  * Command 'Picat: run document' 
+    (default map to F10) compile the source file in active editor into picat process in the integrated terminal and run the main/0(if any), spawning the picat process if not opened. The picat process provides a real REPL console. 
+  ![runner](images/runner.gif)
+  
+  > You can open Picat terminal indepently by 'Picat: open picat' command.
 
 
 ## [Release Notes](CHANGELOG.md)
