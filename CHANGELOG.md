@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.12]
+- refined indentation
+
 ## [0.1.11]
 - fixed a indentation bug
 
