@@ -17,18 +17,21 @@ export function loadEditHelpers(subscriptions: Disposable[]) {
   subscriptions.push(
     languages.setLanguageConfiguration("picat", {
       indentationRules: {
-        // decreaseIndentPattern: /(.*:-\s*|.*-->\s*|.*:->\s*|.*:<-\s*|\s*\)|\s*\])$/,
         decreaseIndentPattern: /(\s*\)|\s*\])$/,
         increaseIndentPattern: /(.*=>\s*|.*->\s*|.+\[|.+\()$/
       },
       wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g,
       onEnterRules: [
         {
-          beforeText: /=>|for.+|then|.+\([^\)]*$/,
+          beforeText: /^\s*$/,
+          action: { indentAction: IndentAction.None }
+        },
+        {
+          beforeText: /=>|foreach.+|then|.+\([^\)]*$/,
           action: { indentAction: IndentAction.Indent }
         },
         {
-          beforeText: /(end|.+\.|[^,;])$/,
+          beforeText: /(.+\.|[^,;])$/,
           action: { indentAction: IndentAction.Outdent }
         },
         {

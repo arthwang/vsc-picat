@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.11]
+- fixed a indentation bug
+
 ## [0.1.10]
 - refined snippets
 
