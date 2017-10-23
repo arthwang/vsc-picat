@@ -81,8 +81,7 @@ function initSnippets() {
   snippets["ifthen"] = {
     prefix: "ifel",
     description: "if then else control",
-    body: `
-if ($1) then
+    body: `if ($1) then
     $2
 else
     $3
@@ -91,8 +90,7 @@ end$0`
   snippets["ifelif"] = {
     prefix: "ifelif",
     description: "if else then control",
-    body: `
-if ($1) then
+    body: `if ($1) then
     $2
 elseif ($3)
     $4
@@ -103,23 +101,20 @@ end$0`
   snippets["elif"] = {
     prefix: "elseif",
     description: "elseif control",
-    body: `
-elseif ($1)
+    body: `elseif ($1)
     $0`
   };
   snippets["while"] = {
     prefix: "while",
     description: "while loop",
-    body: `
-while ($1)
+    body: `while ($1)
     $2
 end$0`
   };
   snippets["dowhile"] = {
     prefix: "do",
     description: "do-while loop",
-    body: `
-do
+    body: `do
     $2
 while($1)
 $0`
@@ -128,8 +123,7 @@ $0`
   snippets["foreach"] = {
     prefix: "foreach",
     description: "foreach block",
-    body: `
-foreach ($1)
+    body: `foreach ($1)
     $2
 end$0`
   };

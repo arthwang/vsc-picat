@@ -2,7 +2,7 @@
     "name": "vsc-picat",
     "displayName": "VSC-Picat",
     "description": "Support for Picat language",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "publisher": "arthurwang",
     "icon": "images/picat.ico",
     "license": "MIT",
