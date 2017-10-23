@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.8]
+## [0.1.9]
 - refined snippets
 
 ## [0.1.7]

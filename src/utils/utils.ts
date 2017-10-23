@@ -48,7 +48,7 @@ export class Utils {
       if (re.test(key)) {
         let mod = key.split(":")[0];
         if (
-          new RegExp("import\\s+" + mod).test(docTxt) ||
+          new RegExp("import\\s+.*\\b" + mod + "\\b").test(docTxt) ||
           Utils.DEFAULTMODULES.indexOf(mod) > -1
         ) {
           descs +=

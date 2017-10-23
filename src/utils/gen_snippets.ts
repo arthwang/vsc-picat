@@ -133,6 +133,12 @@ foreach ($1)
     $2
 end$0`
   };
+  snippets["import"] = {
+    prefix: "imp",
+    description: "import",
+    body: `import $1.
+$0`
+  };
 }
 (async () => {
   initSnippets();
