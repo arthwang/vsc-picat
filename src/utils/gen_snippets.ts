@@ -86,8 +86,7 @@ if ($1) then
     $2
 else
     $3
-end
-$0`
+end$0`
   };
   snippets["ifelif"] = {
     prefix: "ifelif",
@@ -99,8 +98,7 @@ elseif ($3)
     $4
 else
     $5
-end
-$0`
+end$0`
   };
   snippets["elif"] = {
     prefix: "elseif",
@@ -115,8 +113,7 @@ elseif ($1)
     body: `
 while ($1)
     $2
-end
-$0`
+end$0`
   };
   snippets["dowhile"] = {
     prefix: "do",
@@ -132,10 +129,9 @@ $0`
     prefix: "foreach",
     description: "foreach block",
     body: `
-foreach $1
+foreach ($1)
     $2
-end
-$0`
+end$0`
   };
 }
 (async () => {

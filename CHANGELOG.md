@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.8]
+- refined snippets
+
 ## [0.1.7]
 - fixed a bug of snippets generator
 
