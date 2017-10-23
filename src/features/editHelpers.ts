@@ -23,7 +23,7 @@ export function loadEditHelpers(subscriptions: Disposable[]) {
       wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g,
       onEnterRules: [
         {
-          beforeText: /^\s*$/,
+          beforeText: /(^\s*|.*%.+)$/,
           action: { indentAction: IndentAction.None }
         },
         {
