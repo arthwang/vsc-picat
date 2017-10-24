@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.13]
+- reified module info in snippet descriptions
+
 ## [0.1.12]
 - refined indentation
 

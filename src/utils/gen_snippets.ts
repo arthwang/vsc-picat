@@ -2,6 +2,7 @@ import * as fse from "fs-extra-plus";
 
 let path = "/home/laowang/tmp/picatdoc/";
 let guideTxt: string;
+const defaultMods = ["basic", "io", "math", "sys"];
 
 interface ISnippet {
   prefix: string;
@@ -56,11 +57,16 @@ async function moduleToSnippets(module: string) {
     } else if (predDocs[pi.name + "/100"]) {
       doc = predDocs[pi.name + "/100"];
     }
+
     let snippet: ISnippet = {
       prefix: pi.name,
-      description: doc,
+      description:
+        defaultMods.indexOf(modname) === -1
+          ? modname + "." + doc
+          : "From default loaded mode:" + modname + "\n" + doc,
       body: convertToBody(head)
     };
+
     snippets[`${modname}:${pi.pi}`] = snippet;
   });
 }
