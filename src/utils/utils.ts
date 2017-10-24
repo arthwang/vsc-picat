@@ -15,6 +15,7 @@ interface ISnippet {
 }
 import * as fs from "fs";
 import * as cp from "child_process";
+import * as jsesc from "jsesc";
 export class Utils {
   private static snippets: ISnippet = null;
   public static CONTEXT: ExtensionContext | null = null;
@@ -92,7 +93,8 @@ export class Utils {
         }
         i++;
       }
-      let wholePred = text.slice(0, i);
+      let wholePred = jsesc(text.slice(0, i), { quotes: "double" });
+
       let pp = cp.spawnSync(
         Utils.RUNTIMEPATH,
         [
@@ -107,6 +109,8 @@ export class Utils {
         if (match) {
           [name, arity] = [match[1], parseInt(match[2])];
         }
+      } else {
+        console.log(pp.stderr.toString());
       }
     }
     return name + "/" + arity;
