@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.15]
+## [0.1.16]
 - readme update
 ## [0.1.14]
 - fixed a bug of hover
