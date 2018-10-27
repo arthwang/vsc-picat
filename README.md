@@ -2,7 +2,7 @@
 A VS Code extension which provides language support for Picat.
 
 ___________________
-  [Features](#features) | [Configurations](#configurations) | [Bug Reporting](https://github.com/arthwang/vsc-picat/issues) | [Donation](#donation)
+  [Features](#features) | [Configurations](#configurations) | [Bug Reporting](https://github.com/arthwang/vsc-picat/issues)
 __________________
 
 ## Note before installation
@@ -65,9 +65,3 @@ This extension can be installed via extensions viewlet of VS Code or 'Extensions
 ## License
 
   [MIT](http://www.opensource.org/licenses/mit-license.php)
-
-## Donation
-
-  >If this extension works well for you, would you please donate a loaf of bread to encourage me, a freelance programmer, to spend more time to improve it. Any amount is greatly appreciated.
-
-   [PayPal](https://paypal.me/ArthurWang9)
